@@ -1,0 +1,7 @@
+rsc - short command for creating empty component
+interface -
+
+
+
+[note1] - знак вопроса ставим, усли параметр пропсов не обязательный, предполагается, что значение может не прийти
+[note2] - children - special props parameter for render children nodes inside components (read more)
