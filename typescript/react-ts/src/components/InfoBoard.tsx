@@ -4,11 +4,15 @@ interface infoBoardProps {
     backgroundColor?: string;
     border?: string;
     children?: React.ReactNode
+    showTooltip: (tooltipText: string) => void;
 }
 
-const InfoBoard: FC<infoBoardProps> = ({ backgroundColor, border, children }) => {
+const InfoBoard: FC<infoBoardProps> = ({ backgroundColor, border, children,
+                                           showTooltip}) => {
+    const tooltipText = 'test';
+
     return (
-        <div>
+        <div onMouseOver={() => { showTooltip(tooltipText) }}>
             { children }
         </div>
     );

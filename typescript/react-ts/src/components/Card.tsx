@@ -10,12 +10,13 @@ interface CardProps {
     height?: string;
     backgroundColor: string;
     children?: React.ReactNode;
-    variant: CardVariant
+    variant: CardVariant;
+    clickHandler: () => void // what returns, void | string | object etc
 }
 
-const Card = ({ width, height, children, variant, backgroundColor }: CardProps) => {
+const Card = ({ width, height, children, variant, backgroundColor, clickHandler }: CardProps) => {
     return (
-        <div className={variant} style={{ width, height, backgroundColor }}>
+        <div className={variant} style={{ width, height, backgroundColor }} onClick={() => { clickHandler() }}>
             { children /*[note2]*/ }
         </div>
     );
