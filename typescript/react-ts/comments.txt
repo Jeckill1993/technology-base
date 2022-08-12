@@ -5,3 +5,7 @@ interface -
 
 [note1] - знак вопроса ставим, усли параметр пропсов не обязательный, предполагается, что значение может не прийти
 [note2] - children - special props parameter for render children nodes inside components (read more)
+[note3] - special types for events
+[note4] - learn more about drag and drop in React
+[note5] - learn more about conditional operation (operation ?)
+[note6] - generics

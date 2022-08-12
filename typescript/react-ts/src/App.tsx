@@ -1,48 +1,34 @@
 import React, {useState} from 'react';
+import {BrowserRouter, NavLink, Route, Router, Routes} from "react-router-dom";
+
 import Card, {CardVariant} from "./components/Card";
 import InfoBoard from "./components/InfoBoard";
-import UserList from "./components/UserList";
+import EventsExample from "./components/EventsExample";
+import UserPage from "./components/UserPage";
+import TodoPage from "./components/TodoPage";
 
 const App = () => {
 
-    const [isConsoled, setIsConsoled] = useState(false);
-
-    const users = [
-        {
-            "id": 1,
-            "name": "Leanne Graham",
-            "username": "Bret",
-            "email": "Sincere@april.biz",
-            "address": {
-                "street": "Kulas Light",
-                "city": "Gwenborough",
-                "zipcode": "92998-3874",
-            },
-        },
-        {
-            "id": 2,
-            "name": "Ervin Howell",
-            "username": "Antonette",
-            "email": "Shanna@melissa.tv",
-            "address": {
-                "street": "Victor Plains",
-                "city": "Wisokyburgh",
-                "zipcode": "90566-7771",
-            },
-        },
-    ]
+    const [isConsoled, setIsConsoled] = useState<boolean>(false);
 
     const clickHandler = () => {
         console.log(`console type is ${isConsoled}`);
         setIsConsoled(!isConsoled);
     }
-
     const hoverHandler = (text: string) => {
         console.log(text);
     }
 
     return (
-        <div>
+        <BrowserRouter>
+            <nav>
+                <NavLink to={'/users'}>Users</NavLink>
+                <NavLink to={'/todos'}>To Do</NavLink>
+            </nav>
+            <Routes>
+                <Route path={'/users'} element={ <UserPage/> }/>
+                <Route path={'/todos'} element={ <TodoPage/> }/>
+            </Routes>
             <InfoBoard showTooltip={hoverHandler}>
                 <h1>Title</h1>
                 <h3>SubTitle</h3>
@@ -52,8 +38,9 @@ const App = () => {
                 <h3>Title</h3>
                 <button>Click</button>  { /*[note2]*/ }
             </Card>
-            <UserList users={users} />
-        </div>
+
+            <EventsExample />
+        </BrowserRouter>
     );
 };
 

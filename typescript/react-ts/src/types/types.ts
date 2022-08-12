@@ -11,3 +11,10 @@ export interface UserInterface {
     email: string;
     address: AddressInterface;
 }
+
+export interface TodoInterface {
+    userId: number;
+    id: number;
+    title: string;
+    completed: boolean;
+}
